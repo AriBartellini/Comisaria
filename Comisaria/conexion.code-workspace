@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "src/comisaria/conexion"
+		},
+		{
+			"path": "src/comisaria/entidades"
+		},
+		{
+			"path": "src/comisaria/vistas"
+		}
+	]
+}

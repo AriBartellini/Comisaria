@@ -3,11 +3,11 @@ package comisaria.entidades;
 import java.time.LocalDate;
 
 public class Personas {
-    private Int idPersona;
+    private int idPersona;
     private char tipo;
     private String nombre;
     private String apellido;
-    private Int dni;
+    private int dni;
     private String direccion;
     private LocalDate fechaNac;
     private String lugarNac;
@@ -19,10 +19,9 @@ public class Personas {
     public Personas() {
     };
 
-    public Personas(Int idPersona, char tipo, java.lang.String nombre, java.lang.String apellido, Int dni,
+    public Personas(int idPersona, char tipo, java.lang.String nombre, java.lang.String apellido, int dni,
             java.lang.String direccion, LocalDate fechaNac, java.lang.String lugarNac, java.lang.String ocupacion,
-            Personas personaAsociada, java.lang.String lugaresAsociados, boolean antecedentes, java.lang.String string,
-            java.lang.String personas) {
+            Personas personaAsociada, String lugaresAsociados, boolean antecedentes) {
         this.idPersona = idPersona;
         this.tipo = tipo;
         this.nombre = nombre;
@@ -35,15 +34,14 @@ public class Personas {
         this.personaAsociada = personaAsociada;
         this.lugaresAsociados = lugaresAsociados;
         this.antecedentes = antecedentes;
-        String = string;
-        Personas = personas;
+       
     }
 
-    public Int getIdPersona() {
+    public int getIdPersona() {
         return idPersona;
     }
 
-    public void setIdPersona(Int idPersona) {
+    public void setIdPersona(int idPersona) {
         this.idPersona = idPersona;
     }
 
@@ -71,11 +69,11 @@ public class Personas {
         this.apellido = apellido;
     }
 
-    public Int getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(Int dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
@@ -95,7 +93,7 @@ public class Personas {
         this.fechaNac = fechaNac;
     }
 
-    public String getlugarNac() {
+    public String getLugarNac() {
         return lugarNac;
     }
 
@@ -107,44 +105,51 @@ public class Personas {
         return ocupacion;
     }
 
-    public String setOcupacion(String ocupacion) {
+    public void setOcupacion(String ocupacion) {
         this.ocupacion = ocupacion;
     }
 
-    public Personas getPersonasAsociadas(){
+    public Personas getPersonaAsociadas() {
         return personaAsociada;
 
     }
 
-    public void setPersonaAsociada(Persona personaAsociada){
-        this.personaAsociada= personaAsociada;
+    public void setPersonaAsociada(Personas personaAsociada) {
+        this.personaAsociada = personaAsociada;
     }
 
-    public String getLugaresAsociados(){
+    public String getLugaresAsociados() {
         return lugaresAsociados;
     }
 
-    public void setLugaresAsociados(String lugaresAsociados){
-        this.lugaresAsociados=lugaresAsociados;
+    public void setLugaresAsociados(String lugaresAsociados) {
+        this.lugaresAsociados = lugaresAsociados;
     }
 
-    public boolean getAntecedentes(){
+    public boolean getAntecedentes() {
         return antecedentes;
     }
 
-    public void setAntecedentes(boolean antecedentes){
-        this.antecedentes=antecedentes;
+    public void setAntecedentes(boolean antecedentes) {
+        this.antecedentes = antecedentes;
     }
 
     
-
     @Override
     public String toString() {
-        return "Personas [idPersona=" + idPersona + ", tipo=" + tipo + ", nombre=" + nombre
-                + ", apellido=" + apellido + ", dni=" + dni + ", direccion=" + direccion + ", fechaNac="
-                + fechaNac + ", lugarNac=" + lugarNac + ", ocupacion=" + ocupacion
-                + ", personaAsociada=" + personaAsociada + ", lugaresAsociados=" + lugaresAsociados
-                + ", antecedentes=" + antecedentes + "]";
+        return "Personas{" +
+                "idPersona=" + idPersona +
+                ", tipo=" + tipo +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni=" + dni +
+                ", direccion='" + direccion + '\'' +
+                ", fechaNac=" + fechaNac +
+                ", lugarNac='" + lugarNac + '\'' +
+                ", ocupacion='" + ocupacion + '\'' +
+                ", personaAsociada=" + personaAsociada +
+                ", lugaresAsociados='" + lugaresAsociados + '\'' +
+                ", antecedentes=" + antecedentes +
+                '}';
     }
-
 }
