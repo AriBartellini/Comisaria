@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 
-    private String url = "jdbc:mariabd://localhost/";
+    private String url = "jdbc:mariadb://localhost/";
     private String BD = "comisaria"; // cambiarlo de acuerdo a la BD
     private String usuario = "root";
     private String password = "";
@@ -36,8 +36,11 @@ public class Conexion {
             //} catch (SQLException ex) {
             //    JOptionPane.showMessageDialog(null, "Error al cargar los drivers");
             }
+            
+        }else {
+            System.out.println("Conexion a la BD realizada con exito"); 
         }
-        System.out.println("Conexion a la BD realizada con exito"); 
+        
         return conexion;
        
     }
