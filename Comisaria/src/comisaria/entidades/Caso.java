@@ -3,20 +3,20 @@ package comisaria.entidades;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Casos {
+public class Caso {
     private int idCaso;
     private char tipoCaso;
     private LocalDate fecha;
     private LocalTime hora;
     private String direccion;
-    private Personas personaAsociada;
-    private Objetos objetoAsociado;
+    private Persona personaAsociada;
+    private Objeto objetoAsociado;
 
-    public Casos() {
+    public Caso() {
     }
 
-    public Casos(int idCaso, char tipoCaso, LocalDate fecha, LocalTime hora, String direccion,
-            Personas personaAsociada, Objetos objetoAsociado) {
+    public Caso(int idCaso, char tipoCaso, LocalDate fecha, LocalTime hora, String direccion,
+            Persona personaAsociada, Objeto objetoAsociado) {
         this.idCaso = idCaso;
         this.tipoCaso = tipoCaso;
         this.fecha = fecha;
@@ -26,8 +26,8 @@ public class Casos {
         this.objetoAsociado = objetoAsociado;
     }
 
-    public Casos(char tipoCaso, LocalDate fecha, LocalTime hora, String direccion,
-            Personas personaAsociada, Objetos objetoAsociado) {
+    public Caso(char tipoCaso, LocalDate fecha, LocalTime hora, String direccion,
+            Persona personaAsociada, Objeto objetoAsociado) {
 
         this.tipoCaso = tipoCaso;
         this.fecha = fecha;
@@ -77,19 +77,19 @@ public class Casos {
         this.direccion = direccion;
     }
 
-    public Personas getPersonaAsociada() {
+    public Persona getPersonaAsociada() {
         return personaAsociada;
     }
 
-    public void setPersonaAsociada(Personas personaAsociada) {
+    public void setPersonaAsociada(Persona personaAsociada) {
         this.personaAsociada = personaAsociada;
     }
 
-    public Objetos getObjetoAsociado() {
+    public Objeto getObjetoAsociado() {
         return objetoAsociado;
     }
 
-    public void setObjetoAsociado(Objetos objetoAsociado) {
+    public void setObjetoAsociado(Objeto objetoAsociado) {
         this.objetoAsociado = objetoAsociado;
     }
 

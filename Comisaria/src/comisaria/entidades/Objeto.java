@@ -1,15 +1,15 @@
 package comisaria.entidades;
 
-public class Objetos {
+public class Objeto {
     private int idObj;
     private String nombre;
     private String descripcion;
     private double peso;
 
-    public Objetos() {
+    public Objeto() {
     }
 
-    public Objetos(int idObj, String nombre, String descripcion, double peso) {
+    public Objeto(int idObj, String nombre, String descripcion, double peso) {
         this.idObj = idObj;
         this.nombre = nombre;
         this.descripcion = descripcion;

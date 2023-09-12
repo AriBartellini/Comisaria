@@ -44,4 +44,14 @@ public class Conexion {
         return conexion;
        
     }
+
+    public static Connection getConexion() {
+        return conexion;
+    }
+
+    public static void setConexion(Connection conexion) {
+        Conexion.conexion = conexion;
+    }
+    
+    
 }

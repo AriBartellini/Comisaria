@@ -1,27 +1,42 @@
 package comisaria.entidades;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
-public class Personas {
+public class Persona {
     private int idPersona;
-    private char tipo;
+    private String tipo;
     private String nombre;
     private String apellido;
     private int dni;
     private String direccion;
-    private LocalDate fechaNac;
+    private Date fechaNac;
     private String lugarNac;
     private String ocupacion;
-    private Personas personaAsociada;
+    private Persona personaAsociada;
     private String lugaresAsociados;
     private boolean antecedentes;
 
-    public Personas() {
+    public Persona() {
     };
 
-    public Personas(int idPersona, char tipo, java.lang.String nombre, java.lang.String apellido, int dni,
-            java.lang.String direccion, LocalDate fechaNac, java.lang.String lugarNac, java.lang.String ocupacion,
-            Personas personaAsociada, String lugaresAsociados, boolean antecedentes) {
+    public Persona(String tipo, String nombre, String apellido, int dni, String direccion,
+            Date fechaNac, String lugarNac, String ocupacion, Persona personaAsociada, String lugaresAsociados, boolean antecedentes) {
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.direccion = direccion;
+        this.fechaNac = fechaNac;
+        this.lugarNac = lugarNac;
+        this.ocupacion = ocupacion;
+        this.personaAsociada = personaAsociada;
+        this.lugaresAsociados = lugaresAsociados;
+        this.antecedentes = antecedentes;
+    }
+
+    public Persona(int idPersona, String tipo, String nombre, String apellido, int dni,
+            String direccion, Date fechaNac, String lugarNac, String ocupacion,
+            Persona personaAsociada, String lugaresAsociados, boolean antecedentes) {
         this.idPersona = idPersona;
         this.tipo = tipo;
         this.nombre = nombre;
@@ -45,11 +60,11 @@ public class Personas {
         this.idPersona = idPersona;
     }
 
-    public char getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -85,11 +100,11 @@ public class Personas {
         this.direccion = direccion;
     }
 
-    public LocalDate getFechaNac() {
+    public Date getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(LocalDate fechaNac) {
+    public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
 
@@ -109,12 +124,12 @@ public class Personas {
         this.ocupacion = ocupacion;
     }
 
-    public Personas getPersonaAsociadas() {
+    public Persona getPersonaAsociadas() {
         return personaAsociada;
 
     }
 
-    public void setPersonaAsociada(Personas personaAsociada) {
+    public void setPersonaAsociada(Persona personaAsociada) {
         this.personaAsociada = personaAsociada;
     }
 
