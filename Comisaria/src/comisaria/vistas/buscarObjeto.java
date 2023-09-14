@@ -9,12 +9,12 @@ package comisaria.vistas;
  *
  * @author Ari
  */
-public class buscarPersona extends javax.swing.JInternalFrame {
+public class buscarObjeto extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form buscarPersona
+     * Creates new form buscarObjeto
      */
-    public buscarPersona() {
+    public buscarObjeto() {
         initComponents();
     }
 

@@ -9,6 +9,7 @@ public class Persona {
     private String apellido;
     private int dni;
     private String direccion;
+    private int telefono;
     private Date fechaNac;
     private String lugarNac;
     private String ocupacion;
@@ -19,13 +20,14 @@ public class Persona {
     public Persona() {
     };
 
-    public Persona(String tipo, String nombre, String apellido, int dni, String direccion,
+    public Persona(String tipo, String nombre, String apellido, int dni, String direccion, int telefono,
             Date fechaNac, String lugarNac, String ocupacion, Persona personaAsociada, String lugaresAsociados, boolean antecedentes) {
         this.tipo = tipo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.direccion = direccion;
+        this.telefono=telefono;
         this.fechaNac = fechaNac;
         this.lugarNac = lugarNac;
         this.ocupacion = ocupacion;
@@ -35,7 +37,7 @@ public class Persona {
     }
 
     public Persona(int idPersona, String tipo, String nombre, String apellido, int dni,
-            String direccion, Date fechaNac, String lugarNac, String ocupacion,
+            String direccion, int telefono, Date fechaNac, String lugarNac, String ocupacion,
             Persona personaAsociada, String lugaresAsociados, boolean antecedentes) {
         this.idPersona = idPersona;
         this.tipo = tipo;
@@ -43,6 +45,7 @@ public class Persona {
         this.apellido = apellido;
         this.dni = dni;
         this.direccion = direccion;
+        this.telefono=telefono;
         this.fechaNac = fechaNac;
         this.lugarNac = lugarNac;
         this.ocupacion = ocupacion;
@@ -50,6 +53,14 @@ public class Persona {
         this.lugaresAsociados = lugaresAsociados;
         this.antecedentes = antecedentes;
        
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
     public int getIdPersona() {
@@ -149,22 +160,16 @@ public class Persona {
         this.antecedentes = antecedentes;
     }
 
-    
     @Override
     public String toString() {
-        return "Personas{" +
-                "idPersona=" + idPersona +
-                ", tipo=" + tipo +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", dni=" + dni +
-                ", direccion='" + direccion + '\'' +
-                ", fechaNac=" + fechaNac +
-                ", lugarNac='" + lugarNac + '\'' +
-                ", ocupacion='" + ocupacion + '\'' +
-                ", personaAsociada=" + personaAsociada +
-                ", lugaresAsociados='" + lugaresAsociados + '\'' +
-                ", antecedentes=" + antecedentes +
-                '}';
+        return "Persona{" + "idPersona=" + idPersona + ", tipo=" + tipo + 
+                ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + 
+                ", direccion=" + direccion + ", telefono=" + telefono + ", "
+                + "fechaNac=" + fechaNac + ", lugarNac=" + lugarNac + 
+                ", ocupacion=" + ocupacion + ", personaAsociada=" + personaAsociada + 
+                ", lugaresAsociados=" + lugaresAsociados + ", antecedentes=" + antecedentes + '}';
     }
+
+    
+   
 }
