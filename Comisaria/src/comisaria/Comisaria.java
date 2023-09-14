@@ -1,16 +1,17 @@
 package comisaria;
 
 import comisaria.conexion.Conexion;
-import comisaria.conexion.PersonaData;
-import comisaria.entidades.Persona;
-import java.sql.Date;
+//import comisaria.conexion.PersonaData;
+//import comisaria.entidades.Persona;
+import comisaria.vistas.vista1;
+//import java.sql.Date;
 
 public class Comisaria {
 
     public static void main(String[] args) {
         Conexion c = new Conexion();
         c.buscarConexion();
-            //C=culpables, S=sospechosos, T=testigos, V=visitantes, P=personal, D=detenidos, 
+            //C=culpables, S=sospechosos, T=testigos, V=visitantes, P=personal, D=detenidos, V=victimas?
             //public Persona(String tipo, String nombre, String apellido, int dni, String direccion,
             //Date fechaNac, String lugarNac, String ocupacion, Persona personaAsociada, String lugaresAsociados, boolean antecedentes)
             /*
@@ -18,5 +19,7 @@ public class Comisaria {
             PersonaData ejemplo = new PersonaData(); 
             ejemplo.guardarPersona(ejemplo1);
              */
+          vista1 v = new vista1();
+          v.main(args);
     }
 }

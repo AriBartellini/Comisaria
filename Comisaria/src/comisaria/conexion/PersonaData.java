@@ -20,8 +20,8 @@ public class PersonaData {
 
     public void guardarPersona(Persona persona) {
         String sqlInsert = "INSERT INTO persona(tipo, nombre,"
-                + "apellido, dni, direccion, fechaNac, lugarNac, "
-                + "ocupacion, antecedentes) VALUES (?,?,?,?,?,?,?,?)";
+                + "apellido, dni, direccion, telefono, fechaNac, lugarNac, "
+                + "ocupacion, antecedentes) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, persona.getTipo());
@@ -29,10 +29,11 @@ public class PersonaData {
             ps.setString(3, persona.getApellido());
             ps.setInt(4, persona.getDni());
             ps.setString(5, persona.getDireccion());
-            ps.setDate(6, persona.getFechaNac());
-            ps.setString(7, persona.getOcupacion());
-            ps.setString(8, persona.getLugarNac());
-            ps.setBoolean(9, persona.getAntecedentes());
+            ps.setInt(6, persona.getTelefono());
+            ps.setDate(7, persona.getFechaNac());
+            ps.setString(8, persona.getOcupacion());
+            ps.setString(9, persona.getLugarNac());
+            ps.setBoolean(10, persona.getAntecedentes());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -49,7 +50,7 @@ public class PersonaData {
 
     public Persona buscarPersonaPorDni(int dni) {
         Persona persona = null;
-        String sqlSelect = "SELECT tipo, nombre, apellido, dni, direccion, "
+        String sqlSelect = "SELECT tipo, nombre, apellido, dni, direccion, telefono, "
                 + "fechaNac, lugarNac, ocupacion, personasAsociadas,"
                 + " lugaresAsociados, antecedentes FROM persona WHERE dni=?";
         PreparedStatement ps = null;
@@ -65,6 +66,7 @@ public class PersonaData {
                 persona.setApellido(rs.getString("apellido"));
                 persona.setDni(rs.getInt("dni"));
                 persona.setDireccion(rs.getString("direccion"));
+                persona.setTelefono(rs.getInt("telefono"));
                 persona.setFechaNac(rs.getDate("fechaNac"));
                 persona.setLugarNac(rs.getString("lugarNac"));
                 persona.setOcupacion(rs.getString("ocupacion"));
@@ -85,7 +87,7 @@ public class PersonaData {
 
     public Persona buscarPersonaPorApellido(String apellido) {
         Persona persona = null;
-        String sqlSelect = "SELECT tipo, nombre, apellido, dni, direccion, "
+        String sqlSelect = "SELECT tipo, nombre, apellido, dni, direccion, telefono,"
                 + "fechaNac, lugarNac, ocupacion, personasAsociadas,"
                 + " lugaresAsociados, antecedentes FROM persona WHERE apellido=?";
         PreparedStatement ps = null;
@@ -101,6 +103,7 @@ public class PersonaData {
                 persona.setApellido(rs.getString("apellido"));
                 persona.setDni(rs.getInt("dni"));
                 persona.setDireccion(rs.getString("direccion"));
+                persona.setTelefono(rs.getInt("telefono"));
                 persona.setFechaNac(rs.getDate("fechaNac"));
                 persona.setLugarNac(rs.getString("lugarNac"));
                 persona.setOcupacion(rs.getString("ocupacion"));
@@ -135,6 +138,7 @@ public class PersonaData {
                 persona.setFechaNac(rs.getDate("fechaNac"));
                 persona.setAntecedentes(rs.getBoolean("antecedentes"));
                 persona.setOcupacion(rs.getString("ocupacion"));
+                persona.setTelefono(rs.getInt("telefono"));
                 
                 personas.add(persona);
             }
