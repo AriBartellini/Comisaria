@@ -1,10 +1,33 @@
-
 package comisaria.vistas;
+
+import com.formdev.flatlaf.FlatDarkLaf;
+import javax.swing.ImageIcon;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class vista1 extends javax.swing.JFrame {
 
     public vista1() {
         initComponents();
+        //Centrar la ventana ->
+        this.setLocationRelativeTo(null);
+        determinarFondo();
+    }
+   
+    //Centremos el frame interno ->
+        public void centrarInternalFrame(JInternalFrame internalFrame) {
+        int ancho = escritorio.getWidth();
+        int alto = escritorio.getHeight();
+        int anchoFrame = internalFrame.getWidth();
+        int altoFrame = internalFrame.getHeight();
+
+        int x = (ancho - anchoFrame) / 2;
+        int y = (alto - altoFrame) / 2;
+
+        internalFrame.setLocation(x, y);
     }
 
     @SuppressWarnings("unchecked")
@@ -165,8 +188,9 @@ public class vista1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuAgregarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregarPersonaActionPerformed
-       escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
+        determinarFondo();
         agregarPersona ap = new agregarPersona();
         ap.setVisible(true);
         escritorio.add(ap);
@@ -181,15 +205,15 @@ public class vista1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-  
-        
+
     private void menuPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPersonaActionPerformed
-        
+
     }//GEN-LAST:event_menuPersonaActionPerformed
 
     private void menuBuscarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBuscarPersonaActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
+        determinarFondo();
         buscarPersona bp = new buscarPersona();
         bp.setVisible(true);
         escritorio.add(bp);
@@ -199,6 +223,7 @@ public class vista1 extends javax.swing.JFrame {
     private void menuAgregarObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregarObjetoActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
+        determinarFondo();
         agregarObjeto ao = new agregarObjeto();
         ao.setVisible(true);
         escritorio.add(ao);
@@ -208,42 +233,38 @@ public class vista1 extends javax.swing.JFrame {
     private void menuBuscarObjetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBuscarObjetoActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
+        determinarFondo();
         buscarObjeto bo = new buscarObjeto();
         bo.setVisible(true);
         escritorio.add(bo);
         escritorio.moveToFront(bo);
     }//GEN-LAST:event_menuBuscarObjetoActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vista1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vista1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vista1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vista1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
+        UIManager.setLookAndFeel(new FlatDarkLaf());
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vista1().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new vista1().setVisible(true);
         });
+    }
+
+    private void determinarFondo() {
+        JLayeredPane base = new JLayeredPane();
+        base.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+
+        JLabel fondo = new JLabel();
+        fondo.setIcon(new ImageIcon("fondo.jpg"));
+        fondo.setBounds(0, 0, escritorio.getWidth(), escritorio.getHeight());
+        fondo.setOpaque(true);
+
+        JLabel logo = new JLabel();
+        logo.setIcon(new ImageIcon("logo2.png"));
+        logo.setBounds((fondo.getWidth() - logo.getPreferredSize().width) / 2, (fondo.getHeight() - logo.getPreferredSize().height) / 2, logo.getPreferredSize().width, logo.getPreferredSize().height);
+
+        base.add(fondo, Integer.valueOf(0));
+        base.add(logo, Integer.valueOf(1));
+
+        escritorio.add(base);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

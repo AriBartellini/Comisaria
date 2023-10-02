@@ -4,11 +4,12 @@ import comisaria.conexion.Conexion;
 //import comisaria.conexion.PersonaData;
 //import comisaria.entidades.Persona;
 import comisaria.vistas.vista1;
+import javax.swing.UnsupportedLookAndFeelException;
 //import java.sql.Date;
 
 public class Comisaria {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedLookAndFeelException { 
         Conexion c = new Conexion();
         c.buscarConexion();
             //C=culpables, S=sospechosos, T=testigos, V=visitantes, P=personal, D=detenidos, V=victimas?
@@ -20,6 +21,6 @@ public class Comisaria {
             ejemplo.guardarPersona(ejemplo1);
              */
           vista1 v = new vista1();
-          v.main(args);
+          vista1.main(args);
     }
 }
